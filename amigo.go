@@ -18,7 +18,7 @@ func main() {
 		host, _ := os.Hostname()
 		fmt.Fprintf(w, fmt.Sprintf("Hello from server %s!", host))
 		elapse := time.Since(now) / time.Millisecond
-		log.Printf("%s %s %dms", r.Method, r.RequestURI, elapse)
+		log.Printf("%s %s %dms\n", r.Method, r.RequestURI, elapse)
 	})
 
 	fmt.Println("Server running...")
