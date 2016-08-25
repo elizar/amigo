@@ -78,7 +78,7 @@ const tmpl = `{{define "index"}}<!DOCTYPE html>
 </head>
 <body>
 	<main>
-		<h1>Hello There!</h1>
+		<h1>Oh Hey There!</h1>
 		<br>
 		<br>
 		<p>
@@ -86,7 +86,7 @@ const tmpl = `{{define "index"}}<!DOCTYPE html>
 		</p>
 		<br>
 		<p>
-			I'm <strong>Amigo</strong> by the way. But you can call me <a href="https://golang.org">Go</a> for short. Enjoy!
+			I'm <a href="https://github.com/elizar/amigo">Amigo</a> by the way. But you can call me <a href="https://golang.org">Go</a> for short. Enjoy!
 		</p>
 	</main>
 	<footer>
