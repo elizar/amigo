@@ -1,12 +1,14 @@
-# Golan 1.7
+# Golang 1.7
 FROM golang:1.7
 
+# Prepare default application directory
 ENV APPDIR $GOPATH/src/github.com/elizar/amigo
-CMD mkdir -p $APPDIR
+RUN mkdir -p $APPDIR
 COPY . $APPDIR
 
-EXPOSE 8080
+# Setup work dir and build binary
+WORKDIR $APPDIR
+RUN go build amigo.go
 
-WORKDIR ${APPDIR}
-CMD go build amigo.go
+# Run the compiled binary
 ENTRYPOINT ./amigo
