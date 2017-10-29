@@ -54,9 +54,9 @@ const tmpl = `{{define "index"}}<!DOCTYPE html>
 			margin: 32px auto;
 			border-radius: 10px;
 			width: 400px;
-			height: 400px;
+			height: 300px;
 			text-align: center;
-			background: #fff url('https://dl.dropboxusercontent.com/u/4624160/amigo.png') bottom center no-repeat;
+			background: #fff url('https://golang.org/doc/gopher/appenginegopher.jpg') bottom center no-repeat;
 			background-size: 50%;
 			padding: 50px;
 			border: 1px solid rgba(0,0,0,0.2);
@@ -78,16 +78,13 @@ const tmpl = `{{define "index"}}<!DOCTYPE html>
 </head>
 <body>
 	<main>
-		<h1>Oh Hey There!</h1>
+		<h1>Gopher Wisdom</h1>
 		<br>
 		<br>
-		<p>
-			Welcome to my humble abode. This is my place of zen and peace. My fortress of solitude if you will.
-		</p>
+		<blockquote>
+			A deployed MVP is worth two prototypes.
+		</blockquote>
 		<br>
-		<p>
-			I'm <a href="https://github.com/elizar/amigo">Amigo</a> by the way. But you can call me <a href="https://golang.org">Go</a> for short. Enjoy!
-		</p>
 	</main>
 	<footer>
 		<p>
