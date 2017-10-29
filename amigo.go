@@ -159,7 +159,6 @@ const tmpl = `{{define "index"}}<!DOCTYPE html>
 </html>{{end}}`
 
 func main() {
-
 	host, _ := os.Hostname()
 	port := os.Getenv("PORT")
 
