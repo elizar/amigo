@@ -5,11 +5,15 @@ import (
 	"html/template"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
 	"strings"
 	"time"
 )
+
+// Quote endpoint
+const quoteURL = "https://raw.githubusercontent.com/AntJanus/programmers-proverbs/master/README.md"
 
 const tmpl = `{{define "index"}}<!DOCTYPE html>
 <html lang="en">
@@ -159,6 +163,7 @@ const tmpl = `{{define "index"}}<!DOCTYPE html>
 </html>{{end}}`
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	host, _ := os.Hostname()
 	port := os.Getenv("PORT")
 
@@ -170,10 +175,17 @@ func main() {
 		now := time.Now()
 
 		proverb := "To code or not to code."
-		resp, err := http.Get("http://proverbs-app.antjan.us/random")
+		resp, err := http.Get(quoteURL)
 		if err == nil {
 			b, _ := ioutil.ReadAll(resp.Body)
-			proverb = strings.Replace(string(b), "\"", "", -1)
+			raw := strings.Split(string(b), "## Proverbs")
+			if len(raw) < 2 {
+				proverb = ""
+			} else {
+				proverbs := strings.Split(raw[1], "***")
+				randomNumber := rand.Intn(len(proverbs))
+				proverb = strings.Replace(proverbs[randomNumber], "#### ", "", -1)
+			}
 		}
 
 		t, _ := template.New("amigo").Parse(tmpl)
