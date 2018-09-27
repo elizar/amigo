@@ -174,14 +174,16 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		now := time.Now()
 
+		// Default
 		proverb := "To code or not to code."
+
 		resp, err := http.Get(quoteURL)
 		if err == nil {
 			b, _ := ioutil.ReadAll(resp.Body)
 			raw := strings.Split(string(b), "## Proverbs")
-			if len(raw) < 2 {
+
+			if len(raw) > 1 {
 				proverb = ""
-			} else {
 				proverbs := strings.Split(raw[1], "***")
 				randomNumber := rand.Intn(len(proverbs))
 				proverb = strings.Replace(proverbs[randomNumber], "#### ", "", -1)
