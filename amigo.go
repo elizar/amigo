@@ -19,7 +19,7 @@ const tmpl = `{{define "index"}}<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>{{.Title}} - {{.Hostname}}</title>
+	<title>{{.Title}} - {{.Path}}</title>
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Paaji" rel="stylesheet">
 	<style>
 		* {
@@ -193,10 +193,11 @@ func main() {
 		t, _ := template.New("amigo").Parse(tmpl)
 		t.ExecuteTemplate(w, "index", struct {
 			Title    string
+			Path     string
 			Hostname string
 			Year     int
 			Proverb  string
-		}{"Amigo", host, time.Now().Year(), proverb})
+		}{"Amigo", r.URL.Path, host, time.Now().Year(), proverb})
 
 		elapse := time.Since(now) / time.Millisecond
 		log.Printf("%s %s %dms\n", r.Method, r.RequestURI, elapse)
