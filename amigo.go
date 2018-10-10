@@ -153,11 +153,7 @@ const tmpl = `{{define "index"}}<!DOCTYPE html>
 				A demo page written in Go. Check out source code <a href="https://github.com/elizar/amigo">here</a>
 			</small>
 		</p>
-		<p>
-			<strong>
-				<small>{{.Hostname}}</small>
-			</strong>
-		</p>
+		<p></p>
 	</footer>
 </body>
 </html>{{end}}`
