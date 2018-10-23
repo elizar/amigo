@@ -1,3 +1,4 @@
-# amigo
+# Amigo
 
-A `Docker` based sample web app powered by `GO`
+A simple web app that spits random `proverbs`. Powered by `Go` and
+`Docker`
