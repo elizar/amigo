@@ -1,4 +1,4 @@
-# Amigo
+# amigo
 
-A simple web app that spits random `proverbs`. Powered by `Go` and
-`Docker`
+A simple `go` based web app that spits random `proverbs` from [**`this
+repo`**](https://github.com/AntJanus/programmers-proverbs).
