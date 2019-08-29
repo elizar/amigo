@@ -104,7 +104,6 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		now := time.Now()
 		proverb := ""
 
 		resp, err := http.Get(quoteURL)
@@ -126,9 +125,6 @@ func main() {
 			"hostname": host,
 			"proverb":  proverb,
 		})
-
-		elapse := time.Since(now) / time.Millisecond
-		log.Printf("%s %s 200 %dms\n", r.Method, r.RequestURI, elapse)
 	})
 
 	log.Println(fmt.Sprintf("Server running on %s:%s", host, port))

@@ -1,0 +1,13 @@
+{
+  "name": "amigo",
+  "profile": "default",
+  "regions": [
+    "us-east-1"
+  ],
+  "stages": {
+    "staging": {
+      "domain": "amigo.penzur.xyz",
+      "zone": false
+    }
+  }
+}
